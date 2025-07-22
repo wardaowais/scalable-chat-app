@@ -5,7 +5,13 @@ class SocketService {
 
   constructor() {
     console.log("SocketServer initialized");
-    this._io = new Server();
+    this._io = new Server({
+      cors : {
+        allowedHeaders : ['*'],
+        credentials : true,
+        origin : '*'
+      }
+    });
   }
 
   public initListener(){
